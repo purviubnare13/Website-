@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Khushi's Spider Party 🕷️🎂</title>
+
+    <link rel="stylesheet" href="sp.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="web"></div>
+
+    <!-- Floating hearts -->
+    <div class="floating-hearts">
+        <span>❤️</span>
+        <span>🕷️</span>
+        <span>💖</span>
+        <span>🕸️</span>
+        <span>❤️</span>
+    </div>
+
+
+    <!-- SCREEN 1 -->
+    <section id="screen1" class="screen active">
+
+        <div class="spider-logo">
+            🕷️
+        </div>
+
+        <p class="small-text">WARNING... 🕸️</p>
+
+        <h1>
+            YOU'VE ENTERED<br>
+            <span>KHUSHI'S</span><br>
+            SPIDER PARTY 🎂
+        </h1>
+
+        <p id="introText">
+            Something special is waiting inside... 👀
+        </p>
+
+        <button onclick="goToInvitation()">
+            ENTER THE PARTY 🕷️
+        </button>
+
+    </section>
+
+
+
+    <!-- SCREEN 2 -->
+    <section id="screen2" class="screen">
+
+        <div class="card">
+
+            <p class="invite-top">
+                🕸️ OFFICIAL INVITATION 🕸️
+            </p>
+
+            <h2>
+                YOU'RE INVITED! 🎉
+            </h2>
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <p>
+                To the most important event of the year...
+            </p>
+
+            <h3>
+                KHUSHI'S BIRTHDAY 🥳❤️
+            </h3>
+
+            <p class="date">
+                📅 31 AUGUST
+            </p>
+
+            <p>
+                Dress code: Come as you are 😌<br>
+                Mood: FUN ONLY 😎
+            </p>
+
+            <button onclick="goToCheckIn()">
+                ACCEPT INVITATION 🎟️
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+<!-- SCREEN 3 -->
+<section id="screen3" class="screen">
+
+    <div class="card camera-card">
+
+        <div class="camera-icon">
+            📸
+        </div>
+
+        <h2>
+            PARTY CHECK-IN
+        </h2>
+
+        <p>
+            No entry without a party photo 😭🕷️
+        </p>
+
+        <p class="cute">
+            Choose your camera 👀
+        </p>
+
+        <!-- CAMERA CHOICE -->
+        <div class="camera-options">
+
+            <button onclick="startCamera('snap')">
+                🕷️ SNAP CAMERA
+            </button>
+
+            <button class="secondary" onclick="startCamera('simple')">
+                📷 SIMPLE CAMERA
+            </button>
+
+        </div>
+
+
+        <!-- LIVE CAMERA -->
+        <div id="cameraArea" class="camera-area">
+
+            <video id="video" autoplay playsinline></video>
+
+            <canvas id="canvas"></canvas>
+
+            <img id="photoPreview" alt="Captured photo">
+
+        </div>
+
+
+        <!-- CAMERA MESSAGE -->
+        <p id="cameraMessage" class="camera-message">
+            Choose a camera to continue 📸
+        </p>
+
+
+        <!-- CAMERA CONTROLS -->
+        <div id="cameraControls" class="camera-controls">
+
+            <button onclick="capturePhoto()">
+                📸 TAKE PHOTO
+            </button>
+
+            <button
+                class="secondary"
+                onclick="retakePhoto()"
+                id="retakeButton">
+                🔄 RETAKE
+            </button>
+
+            <button
+                onclick="usePhoto()"
+                id="usePhotoButton">
+                ✅ USE THIS PHOTO
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+   
+
+
+
+    <!-- SCREEN 4 -->
+    <section id="screen4" class="screen">
+
+        <div class="cafe">
+
+            <p class="cafe-small">
+                🕷️ WELCOME TO 🕷️
+            </p>
+
+            <h2>
+                SPIDER<br>
+                <span>BIRTHDAY CAFÉ</span>
+            </h2>
+
+            <p>
+                Choose your birthday fuel 🍕😋
+            </p>
+
+
+            <div class="food-grid">
+
+                <div class="food" onclick="selectFood(this, 'Pizza 🍕')">
+                    <div>🍕</div>
+                    <span>Pizza</span>
+                </div>
+
+                <div class="food" onclick="selectFood(this, 'Burger 🍔')">
+                    <div>🍔</div>
+                    <span>Burger</span>
+                </div>
+
+                <div class="food" onclick="selectFood(this, 'Fries 🍟')">
+                    <div>🍟</div>
+                    <span>Fries</span>
+                </div>
+
+                <div class="food" onclick="selectFood(this, 'Drink 🥤')">
+                    <div>🥤</div>
+                    <span>Drink</span>
+                </div>
+
+                <div class="food" onclick="selectFood(this, 'Cake 🎂')">
+                    <div>🎂</div>
+                    <span>Cake</span>
+                </div>
+
+                <div class="food" onclick="selectFood(this, 'Chocolate 🍫')">
+                    <div>🍫</div>
+                    <span>Chocolate</span>
+                </div>
+
+            </div>
+
+
+            <p id="selectedFood">
+                Choose something first 👀
+            </p>
+
+            <button onclick="goToPlate()">
+                NEXT 🍽️
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SCREEN 5 -->
+    <section id="screen5" class="screen">
+
+        <div class="card">
+
+            <h2>
+                PICK YOUR PLATE 🍽️
+            </h2>
+
+            <p>
+                Because birthday food deserves a proper plate 😭
+            </p>
+
+
+            <div class="plates">
+
+                <div class="plate" onclick="selectPlate(this)">
+                    🍽️
+                    <span>Classic</span>
+                </div>
+
+                <div class="plate" onclick="selectPlate(this)">
+                    🍽️
+                    <span>Fancy</span>
+                </div>
+
+                <div class="plate" onclick="selectPlate(this)">
+                    🍽️
+                    <span>Spider Plate 🕷️</span>
+                </div>
+
+            </div>
+
+
+            <button onclick="goToCake()">
+                SERVE THE FOOD 😋
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SCREEN 6 -->
+    <section id="screen6" class="screen">
+
+        <div class="card cake-screen">
+
+            <div class="big-cake">
+                🎂
+            </div>
+
+            <h2>
+                WAIT... 👀
+            </h2>
+
+            <p>
+                There's one more thing.
+            </p>
+
+            <h1>
+                MAKE A WISH! ✨
+            </h1>
+
+            <button onclick="blowCandles()">
+                BLOW THE CANDLES 🕯️
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SCREEN 7 -->
+    <section id="screen7" class="screen">
+
+        <div class="final">
+
+            <div class="confetti">🎉</div>
+
+            <div class="final-cake">
+                🎂
+            </div>
+
+            <h1>
+                HAPPY BIRTHDAY
+            </h1>
+
+            <h2>
+                KHUSHI! ❤️
+            </h2>
+
+            <p>
+                🕷️ Welcome to your new year of adventures! 🕷️
+            </p>
+
+            <p class="final-message">
+                Eat cake. Have fun. Make memories. 🎂💖
+            </p>
+
+            <div class="party-emojis">
+                🕷️ 🎀 🎂 🎉 ❤️ 🕸️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="sp.js"></script>
+
+</body>
+</html>
