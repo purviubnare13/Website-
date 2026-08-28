@@ -1,0 +1,922 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================
+   COMMON SCREEN
+========================= */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #260008 0%,
+            #090909 45%,
+            #000000 100%
+        );
+}
+
+.screen.active {
+    display: flex;
+    animation: screenIn 0.7s ease;
+}
+
+
+/* =========================
+   BACKGROUND WEB
+========================= */
+
+.web {
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            transparent 0 35px,
+            rgba(255, 23, 68, 0.25) 36px 38px
+        );
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    animation: webGlow 4s ease-in-out infinite;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-hearts span {
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation: floatUp 7s linear infinite;
+
+    opacity: 0.6;
+
+    z-index: 2;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 55%;
+    animation-delay: 4s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 75%;
+    animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 90%;
+    animation-delay: 3s;
+}
+
+
+/* =========================
+   FIRST SCREEN
+========================= */
+
+.spider-logo {
+    font-size: 100px;
+
+    margin-bottom: 15px;
+
+    animation: spiderSwing 3s ease-in-out infinite;
+
+    filter: drop-shadow(0 0 20px #ff1744);
+
+    z-index: 5;
+}
+
+.small-text {
+    color: #ff5272;
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+
+    z-index: 5;
+}
+
+.screen h1 {
+    color: #ff1744;
+
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 30px rgba(255, 23, 68, 0.5);
+
+    z-index: 5;
+}
+
+.screen h1 span {
+    color: #ff80ab;
+}
+
+#introText {
+    color: #ddd;
+
+    font-size: 19px;
+
+    margin: 25px 0;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: #e53935;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 12px #e53935,
+        0 0 30px rgba(229, 57, 53, 0.35);
+
+    transition: 0.3s;
+
+    z-index: 10;
+}
+
+button:hover {
+    transform: scale(1.08);
+
+    background: #ff5252;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.secondary {
+    background: transparent;
+
+    border: 1px solid #ff1744;
+
+    box-shadow: none;
+
+    margin-top: 12px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    max-width: 520px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px 25px;
+
+    border-radius: 30px;
+
+    background: rgba(20, 20, 20, 0.94);
+
+    border: 1px solid rgba(255, 23, 68, 0.5);
+
+    box-shadow:
+        0 0 20px rgba(255, 23, 68, 0.25),
+        inset 0 0 30px rgba(255, 23, 68, 0.05);
+}
+
+.invite-top {
+    color: #ff80ab;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    color: #ff1744;
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #ff80ab;
+
+    font-size: 22px;
+
+    margin: 15px 0;
+}
+
+.card p {
+    color: #ddd;
+
+    line-height: 1.6;
+
+    margin: 10px 0;
+}
+
+.cake {
+    font-size: 80px;
+
+    margin: 10px;
+
+    animation: cakeBounce 2s infinite;
+}
+
+.date {
+    color: #ff5252 !important;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   CAMERA SCREEN
+========================= */
+
+.camera-card {
+    max-width: 520px;
+}
+
+.camera-icon {
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+
+.cute {
+    color: #ff80ab !important;
+}
+
+/* CAMERA OPTIONS */
+
+.camera-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.camera-options button {
+    width: 100%;
+}
+
+/* LIVE CAMERA AREA */
+
+.camera-area {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    margin: 20px 0;
+
+    border: 2px solid #ff1744;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #050505;
+
+    box-shadow:
+        0 0 20px rgba(255, 23, 68, 0.25);
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+#canvas {
+    display: none;
+}
+
+#photoPreview {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+/* CAMERA MESSAGE */
+
+.camera-message {
+    color: #ff80ab !important;
+
+    font-size: 14px;
+
+    min-height: 24px;
+
+    margin: 10px 0 !important;
+}
+
+/* CAMERA BUTTONS */
+
+.camera-controls {
+    display: none;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.camera-controls button {
+    width: 100%;
+}
+
+/* SNAP CAMERA EFFECT */
+
+.camera-card.snap-mode .camera-area {
+    border: 3px solid #ff80ab;
+
+    box-shadow:
+        0 0 15px #ff1744,
+        0 0 35px rgba(255, 128, 171, 0.35);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .camera-card {
+        padding: 22px 16px;
+    }
+
+    .camera-icon {
+        font-size: 60px;
+    }
+
+    .camera-area {
+        aspect-ratio: 4 / 3;
+
+        margin: 15px 0;
+    }
+
+    .camera-options button,
+    .camera-controls button {
+        font-size: 16px;
+
+        padding: 13px 20px;
+    }
+}
+
+/* =========================
+   BIRTHDAY CAFE
+========================= */
+
+.cafe {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    max-width: 650px;
+
+    text-align: center;
+}
+
+.cafe-small {
+    color: #ff80ab;
+
+    letter-spacing: 3px;
+
+    font-size: 13px;
+}
+
+.cafe h2 {
+    color: white;
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    margin: 10px 0 15px;
+
+    text-shadow: 0 0 15px rgba(255, 23, 68, 0.5);
+}
+
+.cafe h2 span {
+    color: #ff1744;
+}
+
+.cafe > p {
+    color: #ccc;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   FOOD
+========================= */
+
+.food-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin: 20px 0;
+}
+
+.food {
+    padding: 15px 8px;
+
+    border-radius: 18px;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.food div {
+    font-size: 40px;
+
+    margin-bottom: 7px;
+}
+
+.food span {
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+.food:hover {
+    transform: translateY(-5px);
+
+    border-color: #ff1744;
+
+    box-shadow:
+        0 0 15px rgba(255, 23, 68, 0.3);
+}
+
+.food.selected {
+    border-color: #ff1744;
+
+    background: rgba(255, 23, 68, 0.15);
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 18px rgba(255, 23, 68, 0.4);
+}
+
+#selectedFood {
+    color: #ff80ab;
+
+    min-height: 25px;
+}
+
+
+/* =========================
+   PLATES
+========================= */
+
+.plates {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+    flex-wrap: wrap;
+}
+
+.plate {
+    width: 130px;
+
+    padding: 20px 10px;
+
+    border-radius: 20px;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    font-size: 50px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.plate span {
+    display: block;
+
+    font-size: 13px;
+
+    color: #ccc;
+
+    margin-top: 8px;
+}
+
+.plate:hover {
+    transform: translateY(-5px);
+
+    border-color: #ff1744;
+}
+
+.plate.selected {
+    border-color: #ff1744;
+
+    background: rgba(255, 23, 68, 0.15);
+
+    box-shadow:
+        0 0 20px rgba(255, 23, 68, 0.4);
+}
+
+
+/* =========================
+   CAKE SCREEN
+========================= */
+
+.cake-screen h1 {
+    margin: 15px 0;
+}
+
+.big-cake {
+    font-size: 120px;
+
+    animation: cakeBounce 2s infinite;
+
+    filter: drop-shadow(0 0 15px #ff1744);
+}
+
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+.final {
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    animation: finalPop 1s ease;
+}
+
+.final-cake {
+    font-size: 110px;
+
+    animation: cakeBounce 2s infinite;
+}
+
+.final h1 {
+    font-size: 45px;
+
+    margin: 10px 0 0;
+}
+
+.final h2 {
+    color: #ff80ab;
+
+    font-size: 38px;
+
+    margin: 5px 0 20px;
+
+    text-shadow: 0 0 15px #ff1744;
+}
+
+.final p {
+    color: #ddd;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin: 10px;
+}
+
+.final-message {
+    color: #ff80ab !important;
+
+    font-weight: bold;
+}
+
+.party-emojis {
+    font-size: 30px;
+
+    margin-top: 25px;
+
+    animation: emojiBounce 2s infinite;
+}
+
+.confetti {
+    position: absolute;
+
+    width: 100vw;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    top: -30px;
+
+    font-size: 35px;
+
+    letter-spacing: 15px;
+
+    animation: confettiMove 2s infinite;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes screenIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes spiderSwing {
+
+    0% {
+        transform: rotate(-8deg);
+    }
+
+    50% {
+        transform: rotate(8deg) translateY(-8px);
+    }
+
+    100% {
+        transform: rotate(-8deg);
+    }
+}
+
+@keyframes cakeBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes floatUp {
+
+    from {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes webGlow {
+
+    0% {
+        transform: scale(1);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.25;
+    }
+}
+
+@keyframes finalPop {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes emojiBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes confettiMove {
+
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(15px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 15px;
+    }
+
+    .screen h1 {
+        font-size: 30px;
+    }
+
+    .spider-logo {
+        font-size: 75px;
+    }
+
+    .card {
+        padding: 25px 18px;
+
+        max-height: 92vh;
+    }
+
+    .card h2 {
+        font-size: 26px;
+    }
+
+    .food-grid {
+        gap: 8px;
+    }
+
+    .food {
+        padding: 10px 5px;
+    }
+
+    .food div {
+        font-size: 32px;
+    }
+
+    .food span {
+        font-size: 12px;
+    }
+
+    .plate {
+        width: 105px;
+
+        font-size: 40px;
+    }
+
+    .big-cake {
+        font-size: 90px;
+    }
+
+    .final-cake {
+        font-size: 85px;
+    }
+
+    .final h1 {
+        font-size: 32px;
+    }
+
+    .final h2 {
+        font-size: 30px;
+    }
+
+    .final p {
+        font-size: 16px;
+    }
+
+    #introText {
+        font-size: 17px;
+    }
+}
